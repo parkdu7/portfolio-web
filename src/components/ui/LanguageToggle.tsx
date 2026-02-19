@@ -11,7 +11,7 @@ export function LanguageToggle() {
       onClick={toggleLang}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="relative flex items-center gap-1 glass rounded-full px-1 py-1 text-sm font-medium"
+      className="relative flex items-center gap-1 overlay-btn rounded-full px-1 py-1 text-sm font-medium"
       aria-label="Toggle language"
     >
       <motion.span

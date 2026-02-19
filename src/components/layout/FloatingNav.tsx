@@ -104,7 +104,7 @@ function MobileNav() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       aria-label="Site navigation"
     >
-      <div className="glass-nav border-t border-[var(--glass-border)] flex">
+      <div className="glass-nav border-t border-[var(--nav-border)] flex">
         {NAV_ITEMS.map(({ id, Icon }) => {
           const isActive = activeSection === id;
           return (

@@ -46,7 +46,7 @@ export function TechStack() {
                 'px-4 py-2 rounded-full text-sm font-medium transition-all',
                 activeCategory === cat
                   ? 'bg-primary-500 text-white'
-                  : 'glass text-[var(--fg-muted)] hover:text-[var(--fg)]'
+                  : 'glass-card text-[var(--fg-muted)] hover:text-[var(--fg)]'
               )}
             >
               {cat === 'All' ? '✦ All' : `${techStackData.find(c => c.name === cat)?.emoji ?? ''} ${cat}`}

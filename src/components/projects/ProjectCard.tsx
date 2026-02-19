@@ -12,16 +12,11 @@ interface ProjectCardProps {
 export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
   return (
     <motion.div
-      layoutId={`project-card-${project.id}`}
       onClick={() => onOpen(project)}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{
-        delay: index * 0.1,
-        duration: 0.5,
-        layout: { type: 'spring', stiffness: 300, damping: 30 },
-      }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -6, scale: 1.02 }}
       className="glass-card rounded-2xl overflow-hidden cursor-pointer group"
       role="button"
@@ -31,8 +26,7 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-900/30 to-primary-700/20">
-        <motion.img
-          layoutId={`project-image-${project.id}`}
+        <img
           src={project.images[0]}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -44,19 +38,16 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         {/* Period badge */}
-        <span className="absolute top-3 right-3 glass text-xs px-2 py-1 rounded-full font-mono">
+        <span className="absolute top-3 right-3 overlay-btn text-xs px-2 py-1 rounded-full font-mono">
           {project.period.split(' ')[0]}
         </span>
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <motion.h3
-          layoutId={`project-title-${project.id}`}
-          className="text-base font-bold mb-1.5 leading-snug"
-        >
+        <h3 className="text-base font-bold mb-1.5 leading-snug">
           {project.title}
-        </motion.h3>
+        </h3>
         <p className="text-sm text-[var(--fg-muted)] leading-relaxed line-clamp-2 mb-4">
           {project.shortDesc}
         </p>

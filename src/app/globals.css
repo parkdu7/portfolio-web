@@ -5,7 +5,6 @@
 
 /* ─── Custom theme tokens ──────────────────────────────────── */
 @theme {
-  /* Blue primary palette */
   --color-primary-50:  #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -17,14 +16,11 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 
-  /* Font */
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Custom easing */
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Custom keyframes */
   --animate-fade-in:  fade-in 0.5s var(--ease-smooth) forwards;
   --animate-slide-up: slide-up 0.6s var(--ease-smooth) forwards;
 }
@@ -46,12 +42,13 @@
   --fg:             #111827;
   --fg-muted:       #6b7280;
   --border:         rgba(0, 0, 0, 0.08);
-  --glass-bg:       rgba(255, 255, 255, 0.65);
-  --glass-border:   rgba(255, 255, 255, 0.45);
-  --nav-bg:         rgba(248, 249, 250, 0.82);
-  --card-bg:        rgba(255, 255, 255, 0.75);
-  --shadow:         0 4px 24px rgba(0, 0, 0, 0.06);
-  --shadow-lg:      0 8px 40px rgba(0, 0, 0, 0.12);
+  --card-bg:        #ffffff;
+  --card-border:    rgba(0, 0, 0, 0.06);
+  --nav-bg:         rgba(248, 249, 250, 0.92);
+  --nav-border:     rgba(0, 0, 0, 0.06);
+  --shadow:         0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-lg:      0 4px 16px rgba(0, 0, 0, 0.08);
+  --overlay-btn:    rgba(255, 255, 255, 0.85);
 }
 
 .dark {
@@ -60,12 +57,13 @@
   --fg:             #f0f4f8;
   --fg-muted:       #9ca3af;
   --border:         rgba(255, 255, 255, 0.08);
-  --glass-bg:       rgba(15, 15, 25, 0.72);
-  --glass-border:   rgba(255, 255, 255, 0.08);
-  --nav-bg:         rgba(10, 10, 15, 0.85);
-  --card-bg:        rgba(20, 20, 32, 0.80);
-  --shadow:         0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-lg:      0 8px 40px rgba(0, 0, 0, 0.5);
+  --card-bg:        #16161f;
+  --card-border:    rgba(255, 255, 255, 0.06);
+  --nav-bg:         rgba(10, 10, 15, 0.95);
+  --nav-border:     rgba(255, 255, 255, 0.06);
+  --shadow:         0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-lg:      0 4px 16px rgba(0, 0, 0, 0.3);
+  --overlay-btn:    rgba(30, 30, 40, 0.85);
 }
 
 /* ─── Base styles ───────────────────────────────────────────── */
@@ -77,40 +75,33 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-/* ─── Glassmorphism utilities ───────────────────────────────── */
+/* ─── Utility classes (NO backdrop-filter on cards for perf) ── */
 @layer utilities {
-  .glass {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-  }
-
+  /* Nav only - single blur layer is acceptable */
   .glass-nav {
     background: var(--nav-bg);
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
-    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--nav-border);
   }
 
+  /* Cards: solid bg, no backdrop-filter */
   .glass-card {
     background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid var(--card-border);
     box-shadow: var(--shadow);
   }
 
-  /* Custom scrollbar */
+  /* Overlay buttons (carousel arrows, etc): solid bg */
+  .overlay-btn {
+    background: var(--overlay-btn);
+    border: 1px solid var(--card-border);
+  }
+
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
@@ -126,16 +117,10 @@ body {
     border-radius: 2px;
   }
 
-  /* Text gradient */
   .text-gradient {
     background: linear-gradient(135deg, #3b82f6, #6366f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  /* Glow effect */
-  .glow-primary {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
 }
