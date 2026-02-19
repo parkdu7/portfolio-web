@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'>
+  <rect width='800' height='600' fill='#065f46'/>
+  <rect x='40' y='40' width='720' height='520' rx='16' fill='rgba(255,255,255,0.05)'/>
+  <text x='400' y='280' text-anchor='middle' fill='rgba(255,255,255,0.8)' font-size='48' font-family='Arial' font-weight='bold'>DevLog</text>
+  <text x='400' y='340' text-anchor='middle' fill='rgba(255,255,255,0.5)' font-size='24' font-family='Arial'>Screenshot 1</text>
+</svg>
