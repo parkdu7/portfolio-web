@@ -156,7 +156,7 @@ export function Hero() {
                       // Fallback: show initials
                       const el = e.currentTarget.parentElement;
                       if (el) {
-                        el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-4xl font-bold text-primary-500">홍</div>';
+                        el.innerHTML = '<div class="w-full h-full flex items-center justify-center text-4xl font-bold text-primary-500">박</div>';
                       }
                     }}
                   />

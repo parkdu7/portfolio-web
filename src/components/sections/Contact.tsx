@@ -8,22 +8,22 @@ import { useLang } from '@/contexts/LanguageContext';
 const contactLinks = [
   {
     key: 'email' as const,
-    href: 'mailto:hello@example.com',
-    label: 'hello@example.com',
+    href: 'mailto:tmdrbs0925@gmail.com',
+    label: 'tmdrbs0925@gmail.com',
     icon: Mail,
     color: '#3b82f6',
   },
   {
     key: 'github' as const,
-    href: 'https://github.com/example',
-    label: 'github.com/example',
+    href: 'https://github.com/parkdu7',
+    label: 'github.com/parkdu7',
     icon: Github,
     color: '#6366f1',
   },
   {
     key: 'linkedin' as const,
-    href: 'https://linkedin.com/in/example',
-    label: 'linkedin.com/in/example',
+    href: 'https://www.linkedin.com/in/%EC%8A%B9%EA%B7%A0-%EB%B0%95-095151370/',
+    label: 'linkedin.com/in/박승균',
     icon: Linkedin,
     color: '#0ea5e9',
   },
@@ -88,7 +88,7 @@ export function Contact() {
           transition={{ delay: 0.4 }}
           className="text-center text-xs text-[var(--fg-muted)] mt-12"
         >
-          © 2025 홍길동. Built with Next.js & Tailwind CSS
+          © 2025 박승균. Built with Next.js & Tailwind CSS
         </motion.p>
       </div>
     </SectionWrapper>
