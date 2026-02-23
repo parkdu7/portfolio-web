@@ -88,6 +88,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Smooth dark/light mode transitions ────────────────────── */
+html, body {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.glass-card, .glass-nav, .overlay-btn {
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
 /* ─── Utility classes (NO backdrop-filter on cards for perf) ── */
 @layer utilities {
   /* Nav only - single blur layer is acceptable */
