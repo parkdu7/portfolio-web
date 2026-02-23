@@ -25,11 +25,11 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
       onKeyDown={(e) => e.key === 'Enter' && onOpen(project)}
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-900/30 to-primary-700/20">
+      <div className="relative h-48 overflow-hidden bg-[var(--bg)] flex items-center justify-center">
         <img
           src={project.images[0]}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="max-w-full max-h-full object-contain"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src =
               `https://placehold.co/800x400/1e40af/white?text=${encodeURIComponent(project.title)}`;

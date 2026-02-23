@@ -72,7 +72,7 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
               <img
                 src={src}
                 alt={`Slide ${i + 1}`}
-                className="w-full h-full object-cover pointer-events-none"
+                className="w-full h-full object-contain pointer-events-none"
                 draggable={false}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src =

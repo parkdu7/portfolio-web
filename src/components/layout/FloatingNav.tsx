@@ -10,8 +10,8 @@ import { cn } from '@/lib/utils';
 const NAV_ITEMS: { id: SectionId; Icon: React.ElementType }[] = [
   { id: 'hero',         Icon: User },
   { id: 'achievements', Icon: Trophy },
-  { id: 'techstack',    Icon: Cpu },
   { id: 'projects',     Icon: FolderOpen },
+  { id: 'techstack',    Icon: Cpu },
   { id: 'contact',      Icon: Mail },
 ];
 

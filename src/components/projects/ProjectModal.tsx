@@ -94,7 +94,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <img
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       `https://placehold.co/800x600/1e40af/white?text=Image`;

@@ -9,8 +9,8 @@ export default function Page() {
     <>
       <Hero />
       <Achievements />
-      <TechStack />
       <Projects />
+      <TechStack />
       <Contact />
     </>
   );

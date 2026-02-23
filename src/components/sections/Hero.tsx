@@ -121,7 +121,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               href="/resume.pdf"
-              download
+              download="박승균_CV"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary-500

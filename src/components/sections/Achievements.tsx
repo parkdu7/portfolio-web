@@ -30,7 +30,7 @@ const typeColors: Record<AchievementType, { bg: string; border: string; dot: str
   },
 };
 
-const typeOrder: AchievementType[] = ['award', 'cert', 'score', 'activity'];
+const typeOrder: AchievementType[] = ['award', 'activity', 'cert', 'score'];
 
 export function Achievements() {
   const { t } = useLang();
@@ -64,7 +64,7 @@ export function Achievements() {
                 {/* Category header */}
                 <div className="flex items-center gap-2 mb-5">
                   <div className={cn('w-2 h-2 rounded-full', colors.dot)} />
-                  <h3 className="text-sm font-semibold text-[var(--fg-muted)] uppercase tracking-wider">
+                  <h3 className="text-base font-semibold text-[var(--fg-muted)] uppercase tracking-wider">
                     {t.achievements[type]}
                   </h3>
                 </div>
@@ -86,15 +86,15 @@ export function Achievements() {
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-sm leading-tight">{item.title}</p>
-                          <p className="text-xs text-[var(--fg-muted)] mt-0.5">{item.issuer}</p>
+                          <p className="font-semibold leading-tight">{item.title}</p>
+                          <p className="text-sm text-[var(--fg-muted)] mt-0.5">{item.issuer}</p>
                           {item.description && (
-                            <p className="text-xs text-[var(--fg-muted)] mt-1.5 leading-relaxed">
+                            <p className="text-sm text-[var(--fg-muted)] mt-1.5 leading-relaxed">
                               {item.description}
                             </p>
                           )}
                         </div>
-                        <span className="text-xs text-[var(--fg-muted)] whitespace-nowrap shrink-0 font-mono">
+                        <span className="text-sm text-[var(--fg-muted)] whitespace-nowrap shrink-0 font-mono">
                           {item.date}
                         </span>
                       </div>

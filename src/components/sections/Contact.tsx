@@ -46,19 +46,10 @@ export function Contact() {
           {contactLinks.map((link, i) => {
             const Icon = link.icon;
             const labelKey = link.key as keyof typeof t.contact;
-            return (
-              <motion.a
-                key={link.key}
-                href={link.href}
-                target={link.key !== 'email' ? '_blank' : undefined}
-                rel={link.key !== 'email' ? 'noopener noreferrer' : undefined}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ x: 6, scale: 1.01 }}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 group"
-              >
+            const isEmail = link.key === 'email';
+
+            const inner = (
+              <>
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   style={{ background: `${link.color}20` }}
@@ -71,10 +62,44 @@ export function Contact() {
                   </div>
                   <div className="text-sm font-medium truncate">{link.label}</div>
                 </div>
-                <ArrowUpRight
-                  size={18}
-                  className="text-[var(--fg-muted)] group-hover:text-primary-500 transition-colors shrink-0"
-                />
+                {!isEmail && (
+                  <ArrowUpRight
+                    size={18}
+                    className="text-[var(--fg-muted)] group-hover:text-primary-500 transition-colors shrink-0"
+                  />
+                )}
+              </>
+            );
+
+            if (isEmail) {
+              return (
+                <motion.div
+                  key={link.key}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="glass-card rounded-2xl p-5 flex items-center gap-4 cursor-default select-text"
+                >
+                  {inner}
+                </motion.div>
+              );
+            }
+
+            return (
+              <motion.a
+                key={link.key}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ x: 6, scale: 1.01 }}
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 group"
+              >
+                {inner}
               </motion.a>
             );
           })}

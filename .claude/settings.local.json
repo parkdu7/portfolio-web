@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//e/승균/projects/**)"
+    ]
+  }
+}
