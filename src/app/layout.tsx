@@ -19,6 +19,7 @@ export const metadata: Metadata = {
         title: "박승균 | Portfolio",
         description: "Android, Backend, Frontend 개발자 포트폴리오",
         type: "website",
+        images: [{ url: "/images/profile.jpg" }],
     },
 };
 
