@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/layout/Providers";
 import { FloatingNav } from "@/components/layout/FloatingNav";
 import "./globals.css";
@@ -40,6 +41,7 @@ export default function RootLayout({
                     <FloatingNav />
                     <main className='relative'>{children}</main>
                 </Providers>
+                <Analytics />
             </body>
         </html>
     );
