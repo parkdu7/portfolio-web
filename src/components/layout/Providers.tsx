@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from 'next-themes';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { ContactModalProvider } from '@/contexts/ContactModalContext';
 import type { ReactNode } from 'react';
 
 export function Providers({ children }: { children: ReactNode }) {
@@ -14,7 +15,9 @@ export function Providers({ children }: { children: ReactNode }) {
       storageKey="portfolio-theme"
     >
       <LanguageProvider>
-        {children}
+        <ContactModalProvider>
+          {children}
+        </ContactModalProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

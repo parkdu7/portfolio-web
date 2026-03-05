@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Download, ChevronDown } from 'lucide-react';
+import { Download, ChevronDown, Mail } from 'lucide-react';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ProficiencyBar } from '@/components/ui/ProficiencyBar';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { useLang } from '@/contexts/LanguageContext';
+import { useContactModal } from '@/contexts/ContactModalContext';
 
 const roleBadgeColors = [
   'bg-primary-500/15 text-primary-500 border-primary-500/20',
@@ -45,6 +46,7 @@ function RoleTyper({ roles }: { roles: string[] }) {
 
 export function Hero() {
   const { t } = useLang();
+  const { openContact } = useContactModal();
 
   return (
     <SectionWrapper id="hero" className="min-h-screen flex flex-col justify-center relative">
@@ -115,22 +117,41 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* Resume download CTA */}
-            <motion.a
+            {/* CTA buttons */}
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              href="/박승균_CV.pdf"
-              download="박승균_CV"
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary-500
-                         text-white font-semibold text-sm shadow-lg shadow-primary-500/25
-                         hover:bg-primary-600 transition-colors"
+              className="flex flex-wrap gap-3"
             >
-              <Download size={16} />
-              {t.hero.downloadResume}
-            </motion.a>
+              {/* Resume download */}
+              <motion.a
+                href="/박승균_CV.pdf"
+                download="박승균_CV"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary-500
+                           text-white font-semibold text-sm shadow-lg shadow-primary-500/25
+                           hover:bg-primary-600 transition-colors"
+              >
+                <Download size={16} />
+                {t.hero.downloadResume}
+              </motion.a>
+
+              {/* Contact button */}
+              <motion.button
+                onClick={openContact}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl
+                           border border-[var(--card-border)] text-[var(--fg)] font-semibold text-sm
+                           hover:border-primary-500/50 hover:text-primary-500 hover:bg-primary-500/5
+                           transition-colors"
+              >
+                <Mail size={16} />
+                {t.hero.contactMe}
+              </motion.button>
+            </motion.div>
           </div>
 
           {/* Right: profile image + proficiency bars */}

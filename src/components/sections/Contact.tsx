@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUpRight, Send } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { useLang } from "@/contexts/LanguageContext";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 const contactLinks = [
     {
@@ -31,6 +32,7 @@ const contactLinks = [
 
 export function Contact() {
     const { t } = useLang();
+    const { openContact } = useContactModal();
 
     return (
         <SectionWrapper id='contact' title={t.sections.contact}>
@@ -73,7 +75,12 @@ export function Contact() {
                                         {link.label}
                                     </div>
                                 </div>
-                                {!isEmail && (
+                                {isEmail ? (
+                                    <Send
+                                        size={18}
+                                        className='text-[var(--fg-muted)] group-hover:text-primary-500 transition-colors shrink-0'
+                                    />
+                                ) : (
                                     <ArrowUpRight
                                         size={18}
                                         className='text-[var(--fg-muted)] group-hover:text-primary-500 transition-colors shrink-0'
@@ -84,19 +91,18 @@ export function Contact() {
 
                         if (isEmail) {
                             return (
-                                <motion.div
+                                <motion.button
                                     key={link.key}
+                                    onClick={openContact}
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{
-                                        delay: i * 0.1,
-                                        duration: 0.5,
-                                    }}
-                                    className='glass-card rounded-2xl p-5 flex items-center gap-4 cursor-default select-text'
+                                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                                    whileHover={{ x: 6, scale: 1.01 }}
+                                    className='glass-card rounded-2xl p-5 flex items-center gap-4 group w-full text-left cursor-pointer'
                                 >
                                     {inner}
-                                </motion.div>
+                                </motion.button>
                             );
                         }
 

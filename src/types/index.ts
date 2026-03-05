@@ -57,6 +57,7 @@ export interface HeroTranslation {
   tagline: string;
   roles: string[];
   downloadResume: string;
+  contactMe: string;
   proficiencies: { label: string; value: number }[];
 }
 
@@ -90,6 +91,21 @@ export interface Translation {
     email: string;
     github: string;
     linkedin: string;
+    form: {
+      title: string;
+      subtitle: string;
+      name: string;
+      email: string;
+      message: string;
+      contactInfo: string;
+      contactPlaceholder: string;
+      send: string;
+      sending: string;
+      successTitle: string;
+      successMsg: string;
+      close: string;
+      error: string;
+    };
   };
 }
 
