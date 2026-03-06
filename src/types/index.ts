@@ -49,6 +49,7 @@ export interface NavTranslation {
   techstack: string;
   projects: string;
   contact: string;
+  guestbook: string;
 }
 
 export interface HeroTranslation {
@@ -69,6 +70,7 @@ export interface Translation {
     techStack: string;
     projects: string;
     contact: string;
+    guestbook: string;
   };
   achievements: {
     award: string;
@@ -84,6 +86,17 @@ export interface Translation {
     viewGithub: string;
     viewDemo: string;
     close: string;
+  };
+  guestbook: {
+    subtitle: string;
+    namePlaceholder: string;
+    messagePlaceholder: string;
+    submit: string;
+    submitting: string;
+    empty: string;
+    error: string;
+    cooldown: string;
+    justNow: string;
   };
   contact: {
     title: string;

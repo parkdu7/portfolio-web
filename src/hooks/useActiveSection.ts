@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-export const SECTION_IDS = ['hero', 'achievements', 'techstack', 'projects', 'contact'] as const;
+export const SECTION_IDS = ['hero', 'achievements', 'projects', 'techstack', 'contact'] as const;
 export type SectionId = typeof SECTION_IDS[number];
 
 export function useActiveSection(): SectionId {
@@ -25,7 +25,7 @@ export function useActiveSection(): SectionId {
       {
         // Shrink detection zone to the middle 20% of viewport
         // Prevents multiple sections from appearing active near boundaries
-        rootMargin: '-20% 0px -60% 0px',
+        rootMargin: '-20% 0px -30% 0px',
         threshold: 0,
       }
     );

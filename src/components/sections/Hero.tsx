@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { Download, ChevronDown, Mail } from 'lucide-react';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ProficiencyBar } from '@/components/ui/ProficiencyBar';
@@ -52,6 +53,12 @@ export function Hero() {
     <SectionWrapper id="hero" className="min-h-screen flex flex-col justify-center relative">
       {/* Top-right controls */}
       <div className="absolute top-6 right-6 flex items-center gap-3 z-10">
+        <Link
+          href="/guestbook"
+          className="text-sm font-semibold text-primary-500 hover:text-primary-400 transition-colors mr-3"
+        >
+          {t.nav.guestbook}
+        </Link>
         <LanguageToggle />
         <ThemeToggle />
       </div>

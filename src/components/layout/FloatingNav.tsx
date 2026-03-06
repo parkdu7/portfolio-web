@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { User, Trophy, Cpu, FolderOpen, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useActiveSection, SECTION_IDS, type SectionId } from '@/hooks/useActiveSection';
@@ -59,6 +60,7 @@ function DesktopNav() {
               whileTap={{ scale: 0.95 }}
               className={cn(
                 'flex items-center gap-3 px-2 py-2.5 rounded-xl text-left transition-colors',
+                collapsed && 'justify-center',
                 isActive
                   ? 'bg-primary-500 text-white'
                   : 'text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-white/10'
@@ -135,6 +137,8 @@ function MobileNav() {
 }
 
 export function FloatingNav() {
+  const pathname = usePathname();
+  if (pathname === '/guestbook') return null;
   return (
     <>
       <DesktopNav />

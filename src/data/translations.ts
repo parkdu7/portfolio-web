@@ -8,6 +8,7 @@ export const translations: Translations = {
             techstack: "기술 스택",
             projects: "프로젝트",
             contact: "연락처",
+            guestbook: "방명록",
         },
         hero: {
             greeting: "안녕하세요, 저는",
@@ -32,6 +33,7 @@ export const translations: Translations = {
             techStack: "기술 스택",
             projects: "프로젝트",
             contact: "연락처",
+            guestbook: "방명록",
         },
         achievements: {
             award: "🏆 수상",
@@ -47,6 +49,17 @@ export const translations: Translations = {
             viewGithub: "GitHub 보기",
             viewDemo: "데모 보기",
             close: "닫기",
+        },
+        guestbook: {
+            subtitle: "방문해주셔서 감사해요. 한마디 남겨주세요 :)",
+            namePlaceholder: "이름",
+            messagePlaceholder: "메시지를 남겨주세요...",
+            submit: "남기기",
+            submitting: "저장 중...",
+            empty: "아직 방명록이 비어있어요. 첫 번째로 남겨보세요!",
+            error: "저장에 실패했어요. 잠시 후 다시 시도해주세요.",
+            cooldown: "잠시 후 다시 작성할 수 있어요.",
+            justNow: "방금 전",
         },
         contact: {
             title: "함께 만들어요",
@@ -79,6 +92,7 @@ export const translations: Translations = {
             techstack: "Tech Stack",
             projects: "Projects",
             contact: "Contact",
+            guestbook: "Guestbook",
         },
         hero: {
             greeting: "Hi, I'm",
@@ -104,6 +118,7 @@ export const translations: Translations = {
             techStack: "Tech Stack",
             projects: "Projects",
             contact: "Contact",
+            guestbook: "Guestbook",
         },
         achievements: {
             award: "🏆 Award",
@@ -119,6 +134,17 @@ export const translations: Translations = {
             viewGithub: "View on GitHub",
             viewDemo: "Live Demo",
             close: "Close",
+        },
+        guestbook: {
+            subtitle: "Thanks for visiting. Leave a message :)",
+            namePlaceholder: "Name",
+            messagePlaceholder: "Leave a message...",
+            submit: "Post",
+            submitting: "Posting...",
+            empty: "No entries yet. Be the first!",
+            error: "Failed to post. Please try again.",
+            cooldown: "Please wait before posting again.",
+            justNow: "Just now",
         },
         contact: {
             title: "Let's Build Together",
