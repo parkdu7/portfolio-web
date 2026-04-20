@@ -9,6 +9,7 @@ export const translations: Translations = {
             projects: "프로젝트",
             contact: "연락처",
             guestbook: "방명록",
+            blog: "블로그",
         },
         hero: {
             greeting: "안녕하세요, 저는",
@@ -34,6 +35,7 @@ export const translations: Translations = {
             projects: "프로젝트",
             contact: "연락처",
             guestbook: "방명록",
+            blog: "블로그",
         },
         achievements: {
             award: "🏆 수상",
@@ -93,6 +95,7 @@ export const translations: Translations = {
             projects: "Projects",
             contact: "Contact",
             guestbook: "Guestbook",
+            blog: "Blog",
         },
         hero: {
             greeting: "Hi, I'm",
@@ -119,6 +122,7 @@ export const translations: Translations = {
             projects: "Projects",
             contact: "Contact",
             guestbook: "Guestbook",
+            blog: "Blog",
         },
         achievements: {
             award: "🏆 Award",

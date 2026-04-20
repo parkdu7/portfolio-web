@@ -42,6 +42,16 @@ export interface TechCategory {
   items: TechItem[];
 }
 
+// ─── Blog ─────────────────────────────────────────────────────
+export interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  summary: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 // ─── Translations ─────────────────────────────────────────────
 export interface NavTranslation {
   hero: string;
@@ -50,6 +60,7 @@ export interface NavTranslation {
   projects: string;
   contact: string;
   guestbook: string;
+  blog: string;
 }
 
 export interface HeroTranslation {
@@ -71,6 +82,7 @@ export interface Translation {
     projects: string;
     contact: string;
     guestbook: string;
+    blog: string;
   };
   achievements: {
     award: string;

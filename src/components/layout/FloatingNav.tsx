@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { User, Trophy, Cpu, FolderOpen, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useActiveSection, SECTION_IDS, type SectionId } from '@/hooks/useActiveSection';
+import { useActiveSection, type SectionId } from '@/hooks/useActiveSection';
 import { useLang } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
@@ -43,7 +43,7 @@ function DesktopNav() {
         <button
           onClick={() => setCollapsed(p => !p)}
           className="flex items-center justify-center w-8 h-8 rounded-xl self-end
-                     text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-white/10 transition-colors"
+                     text-(--fg-muted) hover:text-(--fg) hover:bg-white/10 transition-colors"
           aria-label={collapsed ? 'Expand navigation' : 'Collapse navigation'}
         >
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
@@ -63,15 +63,12 @@ function DesktopNav() {
                 collapsed && 'justify-center',
                 isActive
                   ? 'bg-primary-500 text-white'
-                  : 'text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-white/10'
+                  : 'text-(--fg-muted) hover:text-(--fg) hover:bg-white/10'
               )}
               aria-current={isActive ? 'location' : undefined}
               aria-label={t.nav[id]}
             >
-              <Icon
-                size={16}
-                className="shrink-0"
-              />
+              <Icon size={16} className="shrink-0" />
               <AnimatePresence>
                 {!collapsed && (
                   <motion.span
@@ -106,7 +103,7 @@ function MobileNav() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       aria-label="Site navigation"
     >
-      <div className="glass-nav border-t border-[var(--nav-border)] flex">
+      <div className="glass-nav border-t border-(--nav-border) flex">
         {NAV_ITEMS.map(({ id, Icon }) => {
           const isActive = activeSection === id;
           return (
@@ -115,7 +112,7 @@ function MobileNav() {
               onClick={() => scrollToSection(id)}
               className={cn(
                 'flex-1 flex flex-col items-center gap-0.5 py-3 transition-colors',
-                isActive ? 'text-primary-500' : 'text-[var(--fg-muted)]'
+                isActive ? 'text-primary-500' : 'text-(--fg-muted)'
               )}
               aria-current={isActive ? 'location' : undefined}
               aria-label={t.nav[id]}
@@ -138,7 +135,7 @@ function MobileNav() {
 
 export function FloatingNav() {
   const pathname = usePathname();
-  if (pathname === '/guestbook') return null;
+  if (pathname === '/guestbook' || pathname.startsWith('/blog')) return null;
   return (
     <>
       <DesktopNav />

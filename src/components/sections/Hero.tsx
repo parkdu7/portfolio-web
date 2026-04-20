@@ -54,6 +54,12 @@ export function Hero() {
       {/* Top-right controls */}
       <div className="absolute top-6 right-6 flex items-center gap-3 z-10">
         <Link
+          href="/blog"
+          className="text-sm font-semibold text-(--fg-muted) hover:text-primary-500 transition-colors"
+        >
+          {t.nav.blog}
+        </Link>
+        <Link
           href="/guestbook"
           className="text-sm font-semibold text-primary-500 hover:text-primary-400 transition-colors mr-3"
         >
