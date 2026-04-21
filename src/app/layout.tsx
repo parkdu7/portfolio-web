@@ -6,6 +6,7 @@ import { AdminLoginButton } from "@/components/ui/AdminLoginButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.seunggyun.site'),
     title: "박승균 | Portfolio",
     description: "Android, Backend, Frontend 개발자 포트폴리오",
     keywords: [
