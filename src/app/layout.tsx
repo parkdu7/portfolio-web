@@ -24,6 +24,10 @@ export const metadata: Metadata = {
         type: "website",
         images: [{ url: "/images/profile.jpg" }],
     },
+    verification: {
+        google: 'z3jytr-QOoRWB9D6f3QQxtACARm0-1U-l89abZIEMhk',
+        other: { 'naver-site-verification': ['c926525e71f369a80c6813ca1062f1b1637511e6'] },
+    },
 };
 
 export const viewport: Viewport = {
